@@ -1,10 +1,14 @@
-module BikeContainter
+class BikeContainer
   attr_writer :capacity
 
   DEFAULT_CAPACITY = 20
 
   def bikes
     @bikes ||= []
+  end
+
+  def bike_count
+    bikes.length
   end
 
   def capacity
@@ -24,7 +28,7 @@ module BikeContainter
   private
 
   def full?
-    bikes.length >= DEFAULT_CAPACITY
+    bikes.length >= capacity
   end
 
   def empty?
