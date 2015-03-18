@@ -1,10 +1,13 @@
 require './lib/bike_container'
 
+class ContainerHolder; include BikeContainer; end
+
 describe BikeContainer do
   let(:bike) { Bike.new }
+  let(:holder) { ContainerHolder.new }
   it 'should accept a bike' do
-    expect(subject.bike_count).to eq(0)
-    subject.dock(bike)
-    expect(subject.bike_count).to eq(1)
+    expect(holder.bike_count).to eq(0)
+    holder.dock(bike)
+    expect(holder.bike_count).to eq(1)
   end
 end
