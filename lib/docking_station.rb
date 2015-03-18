@@ -1,16 +1,11 @@
 require_relative 'bike'
+require_relative 'bike_container'
 
 class DockingStation
-  attr_writer :bike
-  # alias_method :release_bike, :bike
-  alias_method :dock, :bike=
+  include BikeContainer
 
-  def release_bike
-    fail 'No Bikes Available' unless @bike
-    @bike
+  def initialize(options = {})
+    self.capacity = options.fetch(:capacity, capacity)
   end
 
-  # def dock
-  # @bike = bike
-  # end
 end
