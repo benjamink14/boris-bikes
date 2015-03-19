@@ -1,4 +1,4 @@
-class BikeContainer
+module BikeContainer
   attr_writer :capacity
 
   DEFAULT_CAPACITY = 20
