@@ -7,9 +7,9 @@ class DockingStation
     self.capacity = options.fetch(:capacity, capacity)
   end
 
-  def release_broken_bikes
+  def release_broken_bikes # rubocop: disable all
     broken_bikes = []
-    (0..bikes.length-1).each do |i| # rubocop: disable all
+    (0..bikes.length - 1).each do |i| # rubocop: disable all
       if bikes[i].is_a? NilClass
         break
       elsif bikes[i].broken?
@@ -18,7 +18,7 @@ class DockingStation
         redo
       end
     end
-    return broken_bikes
+    broken_bikes
   end
 
   def release_bike_with_index
