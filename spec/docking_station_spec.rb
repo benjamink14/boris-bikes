@@ -19,8 +19,10 @@ describe DockingStation do
   end
 
   it 'can release all broken bikes' do
-    5.times { subject.dock(double :bike, broken?: true) }
-    array_of_broken_bikes = [subject.release_broken_bikes]
-    expect {array_of_broken_bikes}.to eq 
+    3.times { subject.dock(double :bike, broken?: true) }
+    2.times { subject.dock(double :bike, broken?: false) }
+    2.times { subject.dock(double :bike, broken?: true) }
+    array_of_broken_bikes = subject.release_broken_bikes
+    expect(array_of_broken_bikes.length).to eq 5
   end
 end

@@ -8,6 +8,7 @@ class Garage
   end
 
   def release_bike
+    fail 'Can not release broken bike' if bikes[bikes.length-1].broken?
     super
   end
 
